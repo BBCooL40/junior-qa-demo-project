@@ -51,6 +51,7 @@ The tested application is a demo web application with the following functionalit
 | `api-testing-notes.md` | Describes API testing approach, endpoints, status codes, negative testing, and Postman collection planning |
 | `test-summary-report.md` | Contains a sample test execution summary and release recommendation |
 | `automation/JuniorQaDemo.Tests` | Contains C# / NUnit unit tests for selected validation scenarios |
+| `postman/` | Contains Postman API testing collection, environment, and notes for ReqRes API scenarios |
 
 ---
 
@@ -124,6 +125,20 @@ Examples of automated validation areas:
 - Item title validation
 - Item description validation
 
+### 5. API Testing with Postman
+
+The project also includes a Postman collection for API testing practice using ReqRes demo endpoints.
+
+The collection demonstrates:
+
+- GET, POST, PUT, and DELETE requests
+- Positive API scenarios
+- Negative API scenarios
+- Status code validation
+- Response body validation
+- Environment variables
+- Collection-level API key authorization
+
 ---
 
 ## Automation
@@ -154,6 +169,40 @@ dotnet test
 
 ---
 
+## Postman API Testing
+
+The project includes a Postman collection and environment under the `postman` folder.
+
+The collection covers:
+
+### Users API
+
+- Get users list
+- Get single user
+- Get user not found
+- Create user
+- Update user
+- Delete user
+
+### Authentication API
+
+- Login successful
+- Login unsuccessful - missing password
+- Register successful
+- Register unsuccessful - missing password
+
+The collection uses an environment variable for the API key. The real API key is not included in this repository.
+
+Before running the collection, replace:
+
+```text
+YOUR_API_KEY_HERE
+```
+
+with a valid ReqRes API key in your local Postman environment.
+
+---
+
 ## Example Interview Explanation
 
 If asked about this project in an interview, I would explain it like this:
@@ -162,7 +211,9 @@ If asked about this project in an interview, I would explain it like this:
 >
 > After that, I added a small C# / NUnit automation project for selected validation scenarios. I did not try to automate every manual test case as a unit test, because different scenarios belong to different test levels. For example, validation logic is suitable for unit testing, while login flow, logout behavior, API status codes, and page refresh behavior are better suited for API, integration, or UI automation.
 >
-> The goal of this project is to show structured QA thinking, attention to risk, clear documentation, and a practical first step toward automation.
+> I also added a Postman collection for API testing using ReqRes demo endpoints. It covers positive and negative API scenarios, response body validation, status code checks, environment variables, and collection-level authorization.
+>
+> The goal of this project is to show structured QA thinking, attention to risk, clear documentation, API testing awareness, and a practical first step toward automation.
 
 ---
 
@@ -171,8 +222,8 @@ If asked about this project in an interview, I would explain it like this:
 Planned future improvements:
 
 - Add real demo web application or publicly available test application
-- Create Postman collection
-- Add API test examples
+- Add Newman CLI execution for the Postman collection
+- Add API test execution report
 - Add UI automation examples with Playwright or Selenium
 - Add GitHub Actions CI pipeline
 - Add screenshots or test execution evidence
