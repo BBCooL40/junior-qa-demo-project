@@ -1,5 +1,7 @@
 # Junior QA Demo Project
 
+[![.NET NUnit Tests](https://github.com/BBCooL40/junior-qa-demo-project/actions/workflows/dotnet-tests.yml/badge.svg)](https://github.com/BBCooL40/junior-qa-demo-project/actions/workflows/dotnet-tests.yml)
+
 This is a practical QA portfolio case study created to demonstrate my testing approach for a junior QA / future SDET role.
 
 The project focuses on a simple web application concept with common user flows such as registration, login, logout, and basic item management. The goal is to show structured test thinking, risk-based prioritization, clear documentation, API testing awareness, and basic automation readiness.
@@ -52,6 +54,7 @@ The tested application is a demo web application with the following functionalit
 | `test-summary-report.md` | Contains a sample test execution summary and release recommendation |
 | `automation/JuniorQaDemo.Tests` | Contains C# / NUnit unit tests for selected validation scenarios |
 | `postman/` | Contains Postman API testing collection, environment, and notes for ReqRes API scenarios |
+| `.github/workflows/dotnet-tests.yml` | GitHub Actions workflow that runs the NUnit tests automatically |
 
 ---
 
@@ -66,6 +69,7 @@ The tested application is a demo web application with the following functionalit
 - Exploratory testing
 - API testing basics
 - Unit test automation with C# and NUnit
+- CI test execution with GitHub Actions
 
 ---
 
@@ -76,6 +80,7 @@ The tested application is a demo web application with the following functionalit
 - Bug reporting
 - Markdown documentation
 - Git and GitHub
+- GitHub Actions
 - Postman
 - C#
 - NUnit
@@ -103,14 +108,15 @@ The test cases and checklists are written in a structured way so they can be und
 
 ### 3. API Testing Awareness
 
-The API testing notes include:
+The API testing notes and Postman collection include:
 
 - Endpoint examples
 - Status code expectations
 - Positive and negative API scenarios
 - Authentication and authorization checks
 - Response body validation
-- Postman collection planning
+- Environment variables
+- Collection-level API key authorization
 
 ### 4. Automation at the Appropriate Test Level
 
@@ -125,19 +131,9 @@ Examples of automated validation areas:
 - Item title validation
 - Item description validation
 
-### 5. API Testing with Postman
+### 5. Continuous Integration Mindset
 
-The project also includes a Postman collection for API testing practice using ReqRes demo endpoints.
-
-The collection demonstrates:
-
-- GET, POST, PUT, and DELETE requests
-- Positive API scenarios
-- Negative API scenarios
-- Status code validation
-- Response body validation
-- Environment variables
-- Collection-level API key authorization
+The project includes a basic CI pipeline with GitHub Actions. The goal is to demonstrate that automated tests should be easy to run locally and automatically in a shared repository.
 
 ---
 
@@ -160,12 +156,28 @@ Current automated test result:
 - Passed: 14
 - Failed: 0
 
-To run the tests:
+To run the tests locally:
 
 ```bash
 cd automation/JuniorQaDemo.Tests
 dotnet test
 ```
+
+---
+
+## Continuous Integration
+
+The project includes a GitHub Actions CI workflow that runs the C# / NUnit automated tests on every push and pull request to the `main` branch.
+
+The workflow performs the following steps:
+
+- Checks out the repository
+- Sets up .NET
+- Restores dependencies
+- Builds the NUnit test project
+- Runs the automated tests
+
+Current CI status is displayed with the badge at the top of this README.
 
 ---
 
@@ -213,7 +225,9 @@ If asked about this project in an interview, I would explain it like this:
 >
 > I also added a Postman collection for API testing using ReqRes demo endpoints. It covers positive and negative API scenarios, response body validation, status code checks, environment variables, and collection-level authorization.
 >
-> The goal of this project is to show structured QA thinking, attention to risk, clear documentation, API testing awareness, and a practical first step toward automation.
+> Finally, I added a GitHub Actions CI workflow so the NUnit tests run automatically on every push and pull request to the main branch.
+>
+> The goal of this project is to show structured QA thinking, attention to risk, clear documentation, API testing awareness, automation fundamentals, and basic CI understanding.
 
 ---
 
@@ -225,10 +239,8 @@ Planned future improvements:
 - Add Newman CLI execution for the Postman collection
 - Add API test execution report
 - Add UI automation examples with Playwright or Selenium
-- Add GitHub Actions CI pipeline
 - Add screenshots or test execution evidence
 - Add simple test execution report from automated tests
-- Add README badge for CI status
 
 ---
 
